@@ -21,7 +21,6 @@ export class UserDetailComponent implements OnInit {
     this.route.params.subscribe(parms => this.userId = parms["id"]);
     this.userSvc.get(this.userId).subscribe(jr => {
       this.user = jr.data as User;
-      console.log("User selected: ", this.user )
     });
   }
 
@@ -35,7 +34,7 @@ export class UserDetailComponent implements OnInit {
         console.log("Error deleting actor", this.userId, jr.errors);
       }
     });
-    
+
   }
 
 }

@@ -18,7 +18,6 @@ export class UserListComponent implements OnInit {
     this.userSvc.list().subscribe(
       jr => {
         this.users = jr.data as User[];
-        console.log("List Users", this.users);
       }
 
     );
