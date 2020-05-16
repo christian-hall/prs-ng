@@ -27,11 +27,10 @@ export class UserDetailComponent implements OnInit {
   delete() {
     this.userSvc.delete(this.userId).subscribe(jr => {
       if (jr.errors == null) {
-        console.log(jr.data);
         this.router.navigateByUrl("/user/list");
       }
       else {
-        console.log("Error deleting actor", this.userId, jr.errors);
+        console.log("Error deleting user", this.userId, jr.errors);
       }
     });
 

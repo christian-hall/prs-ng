@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { JsonResponse } from '../model/json-response.class';
-import { User } from '../model/user.class';
+import { Product } from '../model/product.class';
 
-const url: string = "http://localhost:8080/users/";
+const url: string = "http://localhost:8080/products/";
 @Injectable({
     providedIn: 'root'
 })
-export class UserService {
+export class ProductService {
 
     constructor(private http: HttpClient) { }
 
@@ -18,17 +18,13 @@ export class UserService {
     get(id: number): Observable<JsonResponse> {
         return this.http.get(url + id) as Observable<JsonResponse>;
     }
-    create(user: User): Observable<JsonResponse> {
-        return this.http.post(url, user) as Observable<JsonResponse>;
+    create(product: Product): Observable<JsonResponse> {
+        return this.http.post(url, product) as Observable<JsonResponse>;
     }
-    edit(user: User): Observable<JsonResponse> {
-        return this.http.put(url, user) as Observable<JsonResponse>;
+    edit(product: Product): Observable<JsonResponse> {
+        return this.http.put(url, product) as Observable<JsonResponse>;
     }
     delete(id: number): Observable<JsonResponse> {
         return this.http.delete(url + id) as Observable<JsonResponse>;
     }
-
-    login(user: User): Observable<JsonResponse> {
-        return this.http.post(url + "login", user) as Observable<JsonResponse>;
-      }
 }

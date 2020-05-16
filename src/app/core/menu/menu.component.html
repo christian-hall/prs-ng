@@ -1,8 +1,8 @@
 <nav>
     <ul>
-        <!--<li><img width='40' height='40' src='assets/logo.jpg'></li>-->
         <li *ngFor = "let mi of menuItems" title="mi.tooltip">
             <a routerLink="{{ mi.href }}">{{ mi.display }}</a>
         </li>
+        <li *ngIf="user">{{user.firstName}} {{user.lastName}}</li>
     </ul>
 </nav>

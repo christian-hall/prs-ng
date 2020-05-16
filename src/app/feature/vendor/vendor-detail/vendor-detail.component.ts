@@ -23,5 +23,17 @@ export class VendorDetailComponent implements OnInit {
       this.vendor = jr.data as Vendor;
     });
   }
+  delete() {
+    this.vendorSvc.delete(this.vendorId).subscribe(jr => {
+      if (jr.errors == null) {
+        console.log(jr.data);
+        this.router.navigateByUrl("/vendor/list");
+      }
+      else {
+        console.log("Error deleting vendor", this.vendorId, jr.errors);
+      }
+    });
+
+  }
 
 }

@@ -11,6 +11,10 @@ ul {
 li {
 	display: inline-block;
 	text-align:center;
+	color: white;
+	text-decoration: none;
+	padding: 10px;
+	font-family: Tahoma;
 }
 a {
 	color: white;
@@ -21,4 +25,14 @@ a {
 
 a:hover {
 	background-color: black;
+}
+span {
+	text-align: right;
+	display: inline-block;
+	text-align:right;
+	color: white;
+	text-decoration: none;
+	padding: 10px;
+	font-family: Tahoma;
+	
 }

@@ -8,11 +8,21 @@ import { VendorListComponent } from './feature/vendor/vendor-list/vendor-list.co
 import { VendorDetailComponent } from './feature/vendor/vendor-detail/vendor-detail.component';
 import { VendorCreateComponent } from './feature/vendor/vendor-create/vendor-create.component';
 import { VendorEditComponent } from './feature/vendor/vendor-edit/vendor-edit.component';
+import { ProductListComponent } from './feature/product/product-list/product-list.component';
+import { ProductDetailComponent } from './feature/product/product-detail/product-detail.component';
+import { ProductCreateComponent } from './feature/product/product-create/product-create.component';
+import { ProductEditComponent } from './feature/product/product-edit/product-edit.component';
+import { UserLoginComponent } from './feature/user/user-login/user-login.component';
+import { RequestListComponent } from './feature/request/request-list/request-list.component';
+import { RequestDetailComponent } from './feature/request/request-detail/request-detail.component';
+import { RequestCreateComponent } from './feature/request/request-create/request-create.component';
+import { RequestEditComponent } from './feature/request/request-edit/request-edit.component';
+import { HomeComponent } from './core/home/home/home.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: UserListComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'user/list', component: UserListComponent},
   {path: 'user/detail/:id', component: UserDetailComponent},
   {path: 'user/create', component: UserCreateComponent},
@@ -21,7 +31,16 @@ const routes: Routes = [
   {path: 'vendor/detail/:id', component: VendorDetailComponent},
   {path: 'vendor/create', component: VendorCreateComponent},
   {path: 'vendor/edit/:id', component: VendorEditComponent},
-  {path: '**', component: UserListComponent}
+  {path: 'product/list', component: ProductListComponent},
+  {path: 'product/detail/:id', component: ProductDetailComponent},
+  {path: 'product/create', component: ProductCreateComponent},
+  {path: 'product/edit/:id', component: ProductEditComponent},
+  {path: 'request/list', component: RequestListComponent},
+  {path: 'request/detail/:id', component: RequestDetailComponent},
+  {path: 'request/create', component: RequestCreateComponent},
+  {path: 'request/edit/:id', component: RequestEditComponent},
+  {path: 'user/login', component: UserLoginComponent},
+  {path: '**', component: HomeComponent}
 ];
 
 @NgModule({
