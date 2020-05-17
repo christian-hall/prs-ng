@@ -28,7 +28,7 @@ export class LineItemDetailComponent implements OnInit {
 
       this.liSvc.delete(this.lineId).subscribe(jr => {
         if (jr.errors == null) {
-          this.router.navigateByUrl("request/list");
+          this.router.navigateByUrl("line-item/list/" + this.lineItem.request.id);
         }
         else {
           console.log("Error deleting product", this.lineId, jr.errors);

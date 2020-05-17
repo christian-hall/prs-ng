@@ -40,7 +40,7 @@ export class LineItemCreateComponent implements OnInit {
     this.lineItem.request = this.request;
     this.liSvc.create(this.lineItem).subscribe(jr => {
       if (jr.errors == null) {
-        this.router.navigateByUrl("/request/list/");
+        this.router.navigateByUrl("/line-item/list/" + this.lineItem.request.id);
       } else {
         console.log("Error creating line-item", this,this.lineItem, jr.errors)
       }

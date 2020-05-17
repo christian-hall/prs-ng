@@ -1,1 +1,57 @@
-<p>request-approve works!</p>
+<app-menu></app-menu>
+<div>
+    <span class='component-title'>[{{title1}}]</span>
+    <main class="single">
+        <table *ngIf='request' class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date Submitted</th>
+                    <th>Description</th>
+                    <th>Justification</th>
+                    <th>Date Needed</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{request.user.firstName}} {{request.user.lastName}} </td>
+                    <td>{{request.submittedDate}}</td>
+                    <td>{{request.description}}</td>
+                    <td>{{request.justification}}</td>
+                    <td>{{ request.dateNeeded }}</td>
+                    <td>${{ request.total }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</div>
+<div>
+    <span class='component-title'>[{{title2}}]</span>
+    <main class="single">
+        <table class="table table-sm table-striped">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Line Total</th>
+                </tr>
+            </thead>
+            <tbody *ngIf='!lineItems'>
+                <p>No items present. Select the + to add an item.</p>
+            </tbody>
+            <tbody *ngIf='lineItems'>
+                <tr *ngFor='let lineItem of lineItems'>
+                    <td>{{ lineItem.product.name }}</td>
+                    <td>{{ lineItem.quantity }}</td>
+                    <td>${{ lineItem.product.price }}</td>
+                    <td>${{ lineItem.product.price*lineItem.quantity }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <button>Accept Request</button>
+    <input type="text">
+    <button>Reject Request</button>
+</div>

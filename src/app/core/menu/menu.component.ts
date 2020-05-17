@@ -19,15 +19,26 @@ export class MenuComponent implements OnInit {
     this.sysSvc.checkLogin();
     this.user = this.sysSvc.loggedInUser;
 
-    this.menuItems = [
-      new MenuItem("Home", "/home", "Home"),
-      new MenuItem("Users", "/user/list", "User-List"),
-      new MenuItem("Vendors", "/vendor/list", "Vendor-List"),
-      new MenuItem("Products", "/product/list", "Product-List"),
-      new MenuItem("Requests", "/request/list", "Request-List"),
-
-      new MenuItem("Login", "/user/login", "Login")
-    ];
+    if (this.user.reviewer == true) {
+      this.menuItems = [
+        new MenuItem("Home", "/home", "Home"),
+        new MenuItem("Users", "/user/list", "User-List"),
+        new MenuItem("Vendors", "/vendor/list", "Vendor-List"),
+        new MenuItem("Products", "/product/list", "Product-List"),
+        new MenuItem("Requests", "/request/list", "Request-List"),
+        new MenuItem("Review", "/request/review/" + this.user.id, "Review Requests"),
+        new MenuItem("Login", "/user/login", "Login")
+      ];
+    } else {
+      this.menuItems = [
+        new MenuItem("Home", "/home", "Home"),
+        new MenuItem("Users", "/user/list", "User-List"),
+        new MenuItem("Vendors", "/vendor/list", "Vendor-List"),
+        new MenuItem("Products", "/product/list", "Product-List"),
+        new MenuItem("Requests", "/request/list", "Request-List"),
+        new MenuItem("Login", "/user/login", "Login")
+      ];
+    }
   }
 
 }

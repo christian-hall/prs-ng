@@ -14,7 +14,6 @@ export class LineItemListComponent implements OnInit {
   title1: string = "Purchase Request Line-Items";
   title2: string = "Lines"
   request: Request = null;
-  submitrequest: Request = new Request;
   requestId: number = 0;
   lineItems: LineItem[] = [];
   lineTotal: number = 0;
@@ -40,7 +39,7 @@ export class LineItemListComponent implements OnInit {
   submit() {
     this.requestSvc.submit(this.request).subscribe(jr => {
       if (jr.errors == null) {
-        this.router.navigateByUrl("/requests/list");
+        this.router.navigateByUrl("/request/list/");
       } else {
         console.log("Error submitting request: " + jr.errors);
       }
