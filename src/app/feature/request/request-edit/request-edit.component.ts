@@ -11,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./request-edit.component.css']
 })
 export class RequestEditComponent implements OnInit {
-    title: String = "Request-Edit";
+    title: String = "Edit Request";
     users: User[] = [];
     request: Request = new Request();
     requestId: number = 0;
@@ -43,9 +43,4 @@ export class RequestEditComponent implements OnInit {
       }
     });
   }
-
-  compUser(a: User, b: User): boolean {
-    return a && b && a.id === b.id
-  }
-
 }

@@ -10,8 +10,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class RequestDetailComponent implements OnInit {
   title: string = 'Request-Detail';
-  request: Request;
-  requestId: number;
+  request: Request = null;
+  requestId: number = 0;
 
   constructor(private requestSvc: RequestService,
     private router: Router,

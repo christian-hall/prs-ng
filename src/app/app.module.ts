@@ -24,6 +24,12 @@ import { RequestDetailComponent } from './feature/request/request-detail/request
 import { RequestCreateComponent } from './feature/request/request-create/request-create.component';
 import { RequestEditComponent } from './feature/request/request-edit/request-edit.component';
 import { HomeComponent } from './core/home/home/home.component';
+import { LineItemListComponent } from './feature/line-item/line-item-list/line-item-list.component';
+import { LineItemDetailComponent } from './feature/line-item/line-item-detail/line-item-detail.component';
+import { LineItemCreateComponent } from './feature/line-item/line-item-create/line-item-create.component';
+import { LineItemEditComponent } from './feature/line-item/line-item-edit/line-item-edit.component';
+import { RequestReviewComponent } from './feature/request/request-review/request-review.component';
+import { RequestApproveComponent } from './feature/request/request-approve/request-approve.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +52,13 @@ import { HomeComponent } from './core/home/home/home.component';
     RequestDetailComponent,
     RequestCreateComponent,
     RequestEditComponent,
-    HomeComponent
+    HomeComponent,
+    LineItemListComponent,
+    LineItemDetailComponent,
+    LineItemCreateComponent,
+    LineItemEditComponent,
+    RequestReviewComponent,
+    RequestApproveComponent
   ],
   imports: [
     BrowserModule,

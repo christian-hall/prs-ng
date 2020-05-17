@@ -16,7 +16,7 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf='requests'>
         <tr *ngFor='let request of requests'>
             <td>{{ request.submittedDate }}</td>
             <td>{{ request.user.firstName }} {{ request.user.lastName }}</td>
@@ -29,7 +29,7 @@
                     | 
                 <a routerLink='/request/edit/{{request.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
                     |
-                <a><img src='assets/lines.png' width='20' height='20'></a>
+                <a routerLink='/line-item/list/{{request.id}}'><img src='assets/lines.png' width='20' height='20'></a>
                 </td>
         </tr>
     </tbody>

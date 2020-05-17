@@ -18,6 +18,10 @@ import { RequestDetailComponent } from './feature/request/request-detail/request
 import { RequestCreateComponent } from './feature/request/request-create/request-create.component';
 import { RequestEditComponent } from './feature/request/request-edit/request-edit.component';
 import { HomeComponent } from './core/home/home/home.component';
+import { LineItemListComponent } from './feature/line-item/line-item-list/line-item-list.component';
+import { LineItemCreateComponent } from './feature/line-item/line-item-create/line-item-create.component';
+import { LineItemEditComponent } from './feature/line-item/line-item-edit/line-item-edit.component';
+import { LineItemDetailComponent } from './feature/line-item/line-item-detail/line-item-detail.component';
 
 
 const routes: Routes = [
@@ -39,6 +43,10 @@ const routes: Routes = [
   {path: 'request/detail/:id', component: RequestDetailComponent},
   {path: 'request/create', component: RequestCreateComponent},
   {path: 'request/edit/:id', component: RequestEditComponent},
+  {path: 'line-item/list/:id', component: LineItemListComponent},
+  {path: 'line-item/delete/:id', component: LineItemDetailComponent},
+  {path: 'line-item/create/:id', component: LineItemCreateComponent},
+  {path: 'line-item/edit/:id', component: LineItemEditComponent},
   {path: 'user/login', component: UserLoginComponent},
   {path: '**', component: HomeComponent}
 ];
