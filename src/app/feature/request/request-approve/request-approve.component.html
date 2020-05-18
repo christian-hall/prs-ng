@@ -11,6 +11,7 @@
                     <th>Justification</th>
                     <th>Date Needed</th>
                     <th>Total</th>
+                    <th>Reason for Rejection</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,6 +22,7 @@
                     <td>{{request.justification}}</td>
                     <td>{{ request.dateNeeded }}</td>
                     <td>${{ request.total }}</td>
+                    <td>{{request.reasonForRejection}}</td>
                 </tr>
             </tbody>
         </table>
@@ -51,7 +53,11 @@
             </tbody>
         </table>
     </main>
-    <button>Accept Request</button>
-    <input type="text">
-    <button>Reject Request</button>
+    <div *ngIf="request">
+        <button (click)="accept()" class="btn btn-sm btn-success">Accept Request</button>
+        <input [(ngModel)]="request.reasonForRejection" class="rounded" type="text"
+            placeholder="Reason for rejection...">
+        <button *ngIf="request.reasonForRejection" (click)="reject()" class="btn btn-sm btn-danger">Reject
+            Request</button>
+    </div>
 </div>

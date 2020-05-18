@@ -18,6 +18,7 @@ export class LineItemListComponent implements OnInit {
   lineItems: LineItem[] = [];
   lineTotal: number = 0;
 
+
   constructor(private requestSvc: RequestService,
     private liSvc: LineItemService,
     private router: Router,
@@ -32,14 +33,14 @@ export class LineItemListComponent implements OnInit {
 
     this.liSvc.list(this.requestId).subscribe(jr => {
       this.lineItems = jr.data as LineItem[];
-
     });
   }
 
   submit() {
     this.requestSvc.submit(this.request).subscribe(jr => {
       if (jr.errors == null) {
-        this.router.navigateByUrl("/request/list/");
+        this.router.navigateByUrl("/request/list");
+        alert("Request submitted!")
       } else {
         console.log("Error submitting request: " + jr.errors);
       }

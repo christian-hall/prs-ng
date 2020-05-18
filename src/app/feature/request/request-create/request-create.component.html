@@ -20,7 +20,12 @@
             </tr>
             <tr>
                 <td>Delivery Method:</td>
-                <td><input [(ngModel)]="request.deliveryMode" class="rounded" type="text"></td>
+                <td>
+                    <select [(ngModel)]="request.deliveryMode" class="rounded">
+                        <option> Pickup </option>
+                        <option> Mail </option>
+                    </select>
+                </td>
             </tr>
         </table>
     </main>

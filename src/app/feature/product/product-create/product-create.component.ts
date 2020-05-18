@@ -32,6 +32,7 @@ export class ProductCreateComponent implements OnInit {
       }
       else {
         console.log("error creating new product", this.product, jr.errors);
+        alert(jr.errors + " Please try again.")
       }
     });
   }

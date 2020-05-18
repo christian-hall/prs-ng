@@ -1,10 +1,10 @@
 <app-menu></app-menu>
-<section class="heading">
+<section *ngIf="loggeduser" class="heading">
     <span class="page-title font-weight-bold font-italic">{{title}}</span>
-    <span> | </span>
+    <span *ngIf="loggeduser.admin==true"> | 
     <a routerLink='/user/create'>
         <img width='20' height='20' src='assets/add-icon.png' title='Add New'>
-    </a>
+    </a> </span>
 </section>
 <table *ngIf="users" class="table table-sm table-striped">
     <thead>
@@ -15,12 +15,12 @@
             <th> </th>
         </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf="loggeduser">
         <tr *ngFor="let user of users">
             <td>{{ user.firstName }} {{ user.lastName }}</td>
             <td>{{ user.phoneNumber }}</td>
             <td>{{ user.email }}</td>
-            <td> <a routerLink='/user/detail/{{user.id}}'>
+            <td *ngIf="loggeduser.admin==true"> <a routerLink='/user/detail/{{user.id}}'>
                 <img width='20' height='20' src='assets/details.png' title='Users Details'></a> |
                 <a routerLink='/user/edit/{{user.id}}'>
                     <img width='20' height='20' src='assets/pencil-icon.png' title='Edit User'></a>

@@ -45,7 +45,7 @@
 
         </table>
     </main>
-    <span>
+    <span *ngIf="loggeduser && loggeduser.admin==true">
         <span><a routerLink="/vendor/edit/{{vendor.id}}" class="btn btn-sm btn-warning">Edit</a></span>
         <span> | <button (click)="delete()" class="btn btn-sm btn-danger">Delete</button></span>
     </span>

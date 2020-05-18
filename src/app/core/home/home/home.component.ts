@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/model/user.class';
 import { SystemService } from 'src/app/service/system.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-home',
@@ -15,8 +16,6 @@ export class HomeComponent implements OnInit {
   constructor(sysSvc: SystemService) { }
 
   ngOnInit(): void {
-  //  this.sysSvc.checkLogin();
-  //  this.user = this.sysSvc.loggedInUser;
   }
 
 }
