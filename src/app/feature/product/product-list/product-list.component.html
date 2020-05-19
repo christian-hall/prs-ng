@@ -7,15 +7,15 @@
 <table *ngIf='products' class="table table-sm table-striped">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Part Number</th>
-            <th>Price</th>
+            <th><a (click)="sortBy('name')">Name</a></th>
+            <th><a (click)="sortBy('partNumber')">PartNumber</a></th>
+            <th><a (click)="sortBy('price')">Price</a></th>
             <th>Vendor</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor='let product of products'>
+        <tr *ngFor='let product of products | sort:sortCriteria:sortOrder'>
             <td>{{ product.name }}</td>
             <td>{{ product.partNumber }}</td>
             <td>${{product.price}}</td>

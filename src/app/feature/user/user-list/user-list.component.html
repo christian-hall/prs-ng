@@ -9,15 +9,17 @@
 <table *ngIf="users" class="table table-sm table-striped">
     <thead>
         <tr>
-            <th>Name</th>
+            <th><a (click)="sortBy('firstName')">First Name</a></th>
+            <th><a (click)="sortBy('lastName')">Last Name</a></th>
             <th>Phone Number</th>
             <th>Email</th>
             <th> </th>
         </tr>
     </thead>
     <tbody *ngIf="loggeduser">
-        <tr *ngFor="let user of users">
-            <td>{{ user.firstName }} {{ user.lastName }}</td>
+        <tr *ngFor="let user of users | sort:sortCriteria:sortOrder">
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.lastName }}</td>
             <td>{{ user.phoneNumber }}</td>
             <td>{{ user.email }}</td>
             <td *ngIf="loggeduser.admin==true"> <a routerLink='/user/detail/{{user.id}}'>

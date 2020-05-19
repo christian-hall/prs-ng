@@ -7,17 +7,17 @@
 <table *ngIf='requests' class="table table-sm table-striped">
     <thead>
         <tr>
-            <th>Date Submitted</th>
+            <th><a (click)="sortBy('submittedDate')">Date Submitted</a></th>
             <th>User</th>
             <th>Description</th>
-            <th>Date Needed</th>
-            <th>Total</th>
-            <th>Status</th>
+            <th><a (click)="sortBy('dateNeeded')">Date Needed</a></th>
+            <th><a (click)="sortBy('total')">Total</a></th>
+            <th><a (click)="sortBy('status')">Status</a></th>
             <th></th>
         </tr>
     </thead>
     <tbody *ngIf='requests && user && user.admin==true'>
-        <tr *ngFor='let request of requests'>
+        <tr *ngFor='let request of requests | sort:sortCriteria:sortOrder'>
             <td>{{ request.submittedDate }}</td>
             <td>{{ request.user.firstName }} {{ request.user.lastName }}</td>
             <td>{{ request.description }}</td>

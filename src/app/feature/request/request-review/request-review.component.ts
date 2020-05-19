@@ -4,13 +4,14 @@ import { Request } from 'src/app/model/request.class';
 import { UserService } from 'src/app/service/user.service';
 import { RequestService } from 'src/app/service/request.service';
 import { ActivatedRoute } from '@angular/router';
+import { BaseComponent } from '../../base/base.component';
 
 @Component({
   selector: 'app-request-review',
   templateUrl: './request-review.component.html',
   styleUrls: ['./request-review.component.css']
 })
-export class RequestReviewComponent implements OnInit {
+export class RequestReviewComponent extends BaseComponent implements OnInit {
   user: User = null;
   requests: Request[] = [];
   title: string = "Review Submitted Requests";
@@ -18,9 +19,12 @@ export class RequestReviewComponent implements OnInit {
 
   constructor(private userSvc: UserService,
               private reqSvc: RequestService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute) {
+    super();
+  }
 
   ngOnInit(): void {
+    super.ngOnInit();
     this.route.params.subscribe(parms => this.userId = parms['id']);
     this.reqSvc.review(this.userId).subscribe(jr => {
       this.requests = jr.data as Request[];
