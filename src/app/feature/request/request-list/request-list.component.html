@@ -19,6 +19,7 @@
     <tbody *ngIf='requests && user && user.admin==true'>
         <tr *ngFor='let request of requests | sort:sortCriteria:sortOrder'>
             <td>{{ request.submittedDate }}</td>
+            <td *ngIf="!request.submittedDate"> n/a </td>
             <td>{{ request.user.firstName }} {{ request.user.lastName }}</td>
             <td>{{ request.description }}</td>
             <td>{{ request.dateNeeded }}</td>
@@ -36,6 +37,7 @@
     <tbody *ngIf='myrequests && user && user.admin==false'>
         <tr *ngFor='let myrequest of myrequests'>
             <td *ngIf='myrequest.status != "New"'>{{ myrequest.submittedDate }}</td>
+            <td *ngIf='myrequest.status == "New"'> </td>
             <td>{{ myrequest.user.firstName }} {{ myrequest.user.lastName }}</td>
             <td>{{ myrequest.description }}</td>
             <td>{{ myrequest.dateNeeded }}</td>

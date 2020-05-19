@@ -34,7 +34,7 @@ export class RequestCreateComponent implements OnInit {
         console.log("error creating request", this.request, jr.errors);
       }
     });
-    this.router.navigateByUrl("/request/list");
+    this.router.navigateByUrl("/request/reroute");
   }
 
 }

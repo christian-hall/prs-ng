@@ -31,6 +31,7 @@ export class UserDetailComponent implements OnInit {
       }
       else {
         console.log("Error deleting user", this.userId, jr.errors);
+        alert("This user has requests and cannot be deleted. Please delete requests or transfer to new user.");
       }
     });
 

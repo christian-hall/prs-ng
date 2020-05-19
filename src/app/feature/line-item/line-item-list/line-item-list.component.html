@@ -25,7 +25,7 @@
 <p></p>
 <div>
     <span class='component-title'>[{{title2}}]</span>
-    <span> | <a routerLink='/line-item/create/{{requestId}}'><img width='20' height='20' src='assets/add-icon.png'
+    <span *ngIf="request && request.status=='New'"> | <a routerLink='/line-item/create/{{requestId}}'><img width='20' height='20' src='assets/add-icon.png'
                 title='Add New'>
         </a></span>
     <main class="single">
