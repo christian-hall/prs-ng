@@ -11,18 +11,23 @@
             <tr>
                 <td>Product:</td>
                 <td>
-                    <select [(ngModel)]="lineItem.product" class="rounded">
+                    <select [(ngModel)]="lineItem.product" class="rounded" required>
                         <option *ngFor="let product of products" [ngValue]='product'>{{product.name}}</option>
                     </select>
+                    <span *ngIf="!lineItem.product"><img src="assets/empty.png" width="25"></span>
+                    <span *ngIf="lineItem.product"><img src="assets/full.png" width="25"></span>
                 </td>
             </tr>
             <tr>
                 <td>Quantity:</td>
-                <td><input [(ngModel)]="lineItem.quantity" class="rounded" type="number"></td>
+                <td><input [(ngModel)]="lineItem.quantity" class="rounded" type="number" required min="0">
+                <span *ngIf="lineItem.quantity == 0"><img src="assets/empty.png" width="25"></span>
+                    <span *ngIf="lineItem.quantity != 0"><img src="assets/full.png" width="25"></span>
+                </td>
             </tr>
         </table>
     </main>
-    <span>
+    <span *ngIf="lineItem.product && lineItem.quantity != 0">
         <button (click)="save()" class="btn btn-sm btn-primary">Add Line-Item</button>
     </span>
 </div>

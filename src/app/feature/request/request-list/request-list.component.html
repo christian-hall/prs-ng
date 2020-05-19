@@ -16,7 +16,7 @@
             <th></th>
         </tr>
     </thead>
-    <tbody *ngIf='requests'>
+    <tbody *ngIf='requests && user && user.admin==true'>
         <tr *ngFor='let request of requests'>
             <td>{{ request.submittedDate }}</td>
             <td>{{ request.user.firstName }} {{ request.user.lastName }}</td>
@@ -33,4 +33,23 @@
                 </td>
         </tr>
     </tbody>
+    <tbody *ngIf='myrequests && user && user.admin==false'>
+        <tr *ngFor='let myrequest of myrequests'>
+            <td *ngIf='myrequest.status != "New"'>{{ myrequest.submittedDate }}</td>
+            <td>{{ myrequest.user.firstName }} {{ myrequest.user.lastName }}</td>
+            <td>{{ myrequest.description }}</td>
+            <td>{{ myrequest.dateNeeded }}</td>
+            <td>${{ myrequest.total }}</td>
+            <td> {{ myrequest.status}} </td>
+            <td>
+                <a routerLink='/request/detail/{{myrequest.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
+                    | 
+                <span *ngIf='myrequest.status == "New"'>
+                    <a routerLink='/request/edit/{{myrequest.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
+                 | </span>
+                <a routerLink='/line-item/list/{{myrequest.id}}'><img src='assets/lines.png' width='20' height='20'></a>
+                </td>
+        </tr>
+    </tbody>
+
 </table>

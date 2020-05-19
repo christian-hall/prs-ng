@@ -4,6 +4,7 @@ import { Request } from 'src/app/model/request.class';
 import { RequestService } from 'src/app/service/request.service';
 import { UserService } from 'src/app/service/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-request-edit',
@@ -15,12 +16,17 @@ export class RequestEditComponent implements OnInit {
     users: User[] = [];
     request: Request = new Request();
     requestId: number = 0;
+    loggeduser: User = null;
   constructor(private requestSvc: RequestService,
               private userSvc: UserService,
+              private sysSvc: SystemService,
               private router: Router,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.sysSvc.checkLogin();
+    this.loggeduser = this.sysSvc.loggedInUser;
+
     this.route.params.subscribe(parms => this.requestId = parms['id']);
     this.requestSvc.get(this.requestId).subscribe(jr => {
       this.request = jr.data as Request;
@@ -33,6 +39,9 @@ export class RequestEditComponent implements OnInit {
 
   }
 
+  compUser(a: User, b: User): boolean {
+    return a && b && a.id === b.id
+  }
   save() {
     this.requestSvc.edit(this.request).subscribe(jr => {
       if (jr.errors==null) {

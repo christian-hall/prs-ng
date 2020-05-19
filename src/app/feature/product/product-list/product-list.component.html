@@ -20,10 +20,10 @@
             <td>{{ product.partNumber }}</td>
             <td>${{product.price}}</td>
             <td>{{product.vendor.name}}</td>
-            <td *ngIf="loggeduser && loggeduser.admin==true">
-                <a routerLink='/product/detail/{{product.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
-                    | 
-                <a routerLink='/product/edit/{{product.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
+            <td>
+                <a routerLink='/product/detail/{{product.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a> 
+                <span *ngIf="loggeduser && loggeduser.admin==true"> | <a routerLink='/product/edit/{{product.id}}'>
+                    <img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a></span>
                 </td>
         </tr>
     </tbody>

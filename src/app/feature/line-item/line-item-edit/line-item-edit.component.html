@@ -10,14 +10,14 @@
             <tr>
                 <td>Product:</td>
                 <td>
-                    <select [(ngModel)]="lineItem.product" class="rounded" [compareWith]="compProduct">
+                    <select [(ngModel)]="lineItem.product" class="rounded" [compareWith]="compProduct" required>
                         <option *ngFor="let product of products" [ngValue]='product'>{{product.name}}</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td>Quantity:</td>
-                <td><input [(ngModel)]="lineItem.quantity" class="rounded" type="number"></td>
+                <td><input [(ngModel)]="lineItem.quantity" class="rounded" type="number" required></td>
             </tr>
         </table>
     </main>

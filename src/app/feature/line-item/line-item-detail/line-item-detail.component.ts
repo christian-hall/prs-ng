@@ -22,7 +22,6 @@ export class LineItemDetailComponent implements OnInit {
     this.route.params.subscribe(parms => this.lineId = parms['id']);
     this.liSvc.get(this.lineId).subscribe(jr => {
       this.lineItem = jr.data as LineItem;
-      console.log(this.lineItem);
     });
 
 

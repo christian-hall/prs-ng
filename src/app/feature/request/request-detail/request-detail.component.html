@@ -60,8 +60,8 @@
             </tr>
         </table>
     </main>
-    <span>
-        <span><a routerLink="/request/edit/{{request.id}}" class="btn btn-sm btn-warning">Edit</a></span>
-        <span> | <button (click)="delete()" class="btn btn-sm btn-danger">Delete</button></span>
+    <span *ngIf="request">
+        <span *ngIf="request.status=='New'"><a routerLink="/request/edit/{{request.id}}" class="btn btn-sm btn-warning">Edit</a> | </span>
+        <span><button (click)="delete()" class="btn btn-sm btn-danger">Delete</button></span>
     </span>
 </div>

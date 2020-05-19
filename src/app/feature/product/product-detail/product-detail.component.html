@@ -4,6 +4,9 @@
         <span class="page-title font-weight-bold font-italic">{{title}}</span>
         <span> | <a routerLink="/product/list">Return to list...</a></span>
     </section>
+    <section *ngIf="product && product.photoPath">
+        <img src="assets/{{product.photoPath}}" width="500" style="float:center">
+    </section>
     <main class="single">
         <table class="table table-sm">
             <tr>
